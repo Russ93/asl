@@ -7,7 +7,6 @@
 	</div>
 </div>
 
-		
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
 <script src="http://localhost:3000/socket.io/socket.io.js"></script>
@@ -25,6 +24,7 @@
 	});
 
 	_socketConnection.on('event_from_server', function(data) {
+		console.log(data);
 		$('#send').html(data.body);
 	});
 

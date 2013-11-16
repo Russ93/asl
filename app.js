@@ -34,20 +34,10 @@ fs.readdirSync('./controllers').forEach(function(file) {
 	}
 });
 
-app.get('/*', function(req, res) {
-
-});
-
 socketServer.sockets.on('connection', function(userSocket) {
 
 	userSocket.on('event_from_client', function(data) {
-
-		console.log(data);
-
-		userSocket.broadcast.to(userSocket.room).emit('event_from_server', {
-			data : data
-		});
-
+		userSocket.broadcast.to(userSocket.room).emit('event_from_server', data);
 	});
 
 });
