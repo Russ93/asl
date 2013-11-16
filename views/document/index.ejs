@@ -3,6 +3,29 @@
 <div id="document">
 	<span>Title Here</span>
 	<div>
-		<p>Document Body Here</p>
+		<textarea id="send">Document Body Here</textarea>
 	</div>
 </div>
+
+		
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<script src="http://localhost:3000/socket.io/socket.io.js"></script>
+<script>var _socketConnection = io.connect('http://localhost:3000');</script>
+
+<script>
+	$('#send').keyup(function() {
+
+		var body = $('#send').val();
+
+		_socketConnection.emit('event_from_client', {
+			'body' : body
+		});
+
+	});
+
+	_socketConnection.on('event_from_server', function(data) {
+		$('#send').html(data.body);
+	});
+
+</script>
