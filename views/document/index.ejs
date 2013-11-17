@@ -9,11 +9,11 @@
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
-<script src="http://localhost:3000/socket.io/socket.io.js"></script>
-<script>var _socketConnection = io.connect('http://localhost:3000');</script>
+<script src="http://162.243.36.55/socket.io/socket.io.js"></script>
+<script>var _socketConnection = io.connect('http://162.243.36.55');</script>
 
 
-//This is all front end js
+<!-- This is all front end js -->
 <script>
 	$('.document-body').keyup(function() {
 
@@ -44,7 +44,7 @@
 
 	_socketConnection.on('title_event_from_server', function(data) {
 		console.log(data);
-		$('.document-title').html(data.title);
+		$('.document-title').val(data.title);
 	});
 
 </script>
