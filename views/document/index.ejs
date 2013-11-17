@@ -1,9 +1,9 @@
-<h1>Document</h1>
+<%= include ../template/document-header.ejs %>
 
 <div id="document">
 	<span>Title Here</span>
 	<div>
-		<textarea id="send">Document Body Here</textarea>
+		<textarea class="document">Document Body Here</textarea>
 	</div>
 </div>
 
@@ -15,7 +15,7 @@
 <script>
 	$('#send').keyup(function() {
 
-		var body = $('#send').val();
+		var body = $('.document').val();
 
 		_socketConnection.emit('event_from_client', {
 			'body' : body
@@ -25,7 +25,9 @@
 
 	_socketConnection.on('event_from_server', function(data) {
 		console.log(data);
-		$('#send').html(data.body);
+		$('.document').html(data.body);
 	});
 
 </script>
+
+<%= include ../template/footer.ejs %>
