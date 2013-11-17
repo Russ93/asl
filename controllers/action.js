@@ -1,6 +1,6 @@
 module.exports.controller = function(app) {
-
-	app.get('/action/create', function(req, res) {
+	//When the create button is clicked
+	app.get('/action/create_document', function(req, res) {
 		// do something
 
 		var liveModel = require('../models/live');
@@ -16,6 +16,10 @@ module.exports.controller = function(app) {
 		
 		res.send('<h1>Test</h1>');
 
+	});
+	
+	app.get('/action/create_version', function(req, res) {
+		
 	});
 
 };
