@@ -1,4 +1,11 @@
+.container{
+	width: 960px;
+	margin: 0 auto;
+	text-align: center;
+}
+
 .document{
+	margin: 0 auto;
 	width: 820px;
 	height: 870px;
 }

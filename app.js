@@ -42,6 +42,12 @@ socketServer.sockets.on('connection', function(userSocket) {
 		userSocket.broadcast.to(userSocket.room).emit('event_from_server', data);
 	});
 
+	userSocket.on('title_event_from_client', function(data) {
+		console.log(data);
+		//Get a data flow explanantion for the data var
+		userSocket.broadcast.to(userSocket.room).emit('title_event_from_server', data);
+	}); 
+
 });
 
 httpServer.listen(app.get('port'), function() {

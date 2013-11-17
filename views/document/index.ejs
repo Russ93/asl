@@ -1,9 +1,9 @@
 <%= include ../template/document-header.ejs %>
 
 <div id="document">
-	<span>Title Here</span>
+	<input class="document-title" type="text" value="Title"/>
 	<div>
-		<textarea class="document">Document Body Here</textarea>
+		<textarea class="document-body">Document Body Here</textarea>
 	</div>
 </div>
 
@@ -13,9 +13,9 @@
 <script>var _socketConnection = io.connect('http://localhost:3000');</script>
 
 <script>
-	$('.document').keyup(function() {
+	$('.document-body').keyup(function() {
 
-		var body = $('.document').val();
+		var body = $('.document-body').val();
 
 		_socketConnection.emit('event_from_client', {
 			'body' : body
@@ -25,7 +25,26 @@
 
 	_socketConnection.on('event_from_server', function(data) {
 		console.log(data);
-		$('.document').html(data.body);
+		$('.document-body').html(data.body);
+	});
+
+</script>
+
+
+<script>
+	$('.document-title').keyup(function() {
+
+		var title = $('.document-title').val();
+
+		_socketConnection.emit('title_event_from_client', {
+			'title' : title
+		});
+
+	});
+
+	_socketConnection.on('title_event_from_server', function(data) {
+		console.log(data);
+		$('.document-title').html(data.title);
 	});
 
 </script>
