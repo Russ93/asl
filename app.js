@@ -36,10 +36,10 @@ fs.readdirSync('./controllers').forEach(function(file) {
 
 socketServer.sockets.on('connection', function(userSocket) {
 
-	userSocket.on('event_from_client', function(data) {
+	userSocket.on('body_event_from_client', function(data) {
 		console.log(data);
 		//Get a data flow explanantion for the data var
-		userSocket.broadcast.to(userSocket.room).emit('event_from_server', data);
+		userSocket.broadcast.to(userSocket.room).emit('body_event_from_server', data);
 	});
 
 	userSocket.on('title_event_from_client', function(data) {

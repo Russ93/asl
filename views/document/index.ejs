@@ -12,26 +12,26 @@
 <script src="http://localhost:3000/socket.io/socket.io.js"></script>
 <script>var _socketConnection = io.connect('http://localhost:3000');</script>
 
+
+//This is all front end js
 <script>
 	$('.document-body').keyup(function() {
 
 		var body = $('.document-body').val();
 
-		_socketConnection.emit('event_from_client', {
+		_socketConnection.emit('body_event_from_client', {
 			'body' : body
 		});
 
 	});
 
-	_socketConnection.on('event_from_server', function(data) {
+	_socketConnection.on('body_event_from_server', function(data) {
 		console.log(data);
 		$('.document-body').html(data.body);
 	});
 
-</script>
 
 
-<script>
 	$('.document-title').keyup(function() {
 
 		var title = $('.document-title').val();
