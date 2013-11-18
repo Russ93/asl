@@ -8,7 +8,7 @@ module.exports.controller = function(app) {
 		var liveModel = require('../models/live');
 		liveModel.create({
 			'document_id' : uuid.v4(),
-			'owner' : 'alanjames1987@gmail.com',
+			'owner' : 'sbrwn.sb@gmail.com',
 			'title' : 'Some Document Title',
 			'body' : 'Testing'
 		}, function(err, results) {
