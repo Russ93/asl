@@ -17,7 +17,9 @@ module.exports.controller = function(app) {
 			console.log(results);
 		});
 
-		res.send(results.document_id);
+		res.json({
+			document_id : document_id
+		});
 
 	});
 
