@@ -9,10 +9,10 @@
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
-<script src="http://localhost:3000/socket.io/socket.io.js"></script>
-<script>var _socketConnection = io.connect('http://localhost:3000');</script>
-<!-- <script src="http://162.243.36.55/socket.io/socket.io.js"></script> -->
-<!-- <script>var _socketConnection = io.connect('http://162.243.36.55');</script> -->
+<!-- <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+<script>var _socketConnection = io.connect('http://localhost:3000');</script> -->
+<script src="/socket.io/socket.io.js"></script>
+<script>var _socketConnection = io.connect('/');</script>
 
 <script>
 	$('.document-title').keyup(function() {

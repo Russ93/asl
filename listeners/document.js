@@ -36,4 +36,3 @@ module.exports.setup = function(socketServer, userSocket) {
 	});
 
 }
-
