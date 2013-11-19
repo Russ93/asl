@@ -1,9 +1,9 @@
 <%= include ../template/document-header.ejs %>
 
 <div id="document">
-	<input class="document-title" type="text" placeholder="Title" value="<%= title %>"/>
+	<input id="document-title" class="document-title" type="text" placeholder="Title" value="<%= title %>"/>
 	<div>
-		<textarea class="document-body" placeholder="Start typing into your document"><%= body %></textarea>
+		<textarea id="document-body" class="document-body" placeholder="Start typing into your document"><%= body %></textarea>
 	</div>
 </div>
 
@@ -15,9 +15,9 @@
 <script>var _socketConnection = io.connect('/');</script>
 
 <script>
-	$('.document-title').keyup(function() {
+	$('#document-title').keyup(function() {
 
-		var title = $('.document-title').val();
+		var title = $('#document-title').val();
 
 		_socketConnection.emit('title_event_from_client', {
 			'document_id' : '<%= document_id %>',
@@ -27,12 +27,12 @@
 	});
 
 	_socketConnection.on('title_event_from_server', function(data) {
-		$('.document-title').val(data.title);
+		$('#document-title').val(data.title);
 	});
 
-	$('.document-body').keyup(function() {
+	$('#document-body').keyup(function() {
 
-		var body = $('.document-body').val();
+		var body = $('#document-body').val();
 
 		_socketConnection.emit('body_event_from_client', {
 			'document_id' : '<%= document_id %>',
@@ -42,9 +42,10 @@
 	});
 
 	_socketConnection.on('body_event_from_server', function(data) {
-		$('.document-body').html(data.body);
-	}); 
-	
+		$('#document-body').html(data.body);
+
+	});
+
 </script>
 
 <%= include ../template/footer.ejs %>
