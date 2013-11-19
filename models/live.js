@@ -6,9 +6,18 @@ var collectionName = 'live';
 
 var database;
 
-mongoClient.connect('mongodb://127.0.0.1:27017/' + databaseName, function(err, db) {
-	database = db;
-});
+exports.connect = function(callback) {
+
+	if (database == undefined) {
+		mongoClient.connect('mongodb://127.0.0.1:27017/' + databaseName, function(err, db) {
+			database = db;
+			callback();
+		});
+	} else {
+		callback();
+	}
+
+};
 
 exports.create = function(document, fn) {
 
