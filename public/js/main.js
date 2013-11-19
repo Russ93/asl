@@ -9,9 +9,9 @@ console.log(dt);
 /*----------------END SOCKET STUFF------------------*/
 
 $('.landing-create-document').on("click", function() {
-	
+
 	console.log("click");
-	
+
 	var owner = $('#landing-create-email').val();
 	var title = $('#landing-create-title').val();
 	//Ajax call - create doc
@@ -24,12 +24,12 @@ $('.landing-create-document').on("click", function() {
 			'title' : title
 		},
 		success : function(response) {
-			console.log("end");
-			console.log(response.document_id);
+			if (response.document_id) {
+				console.log("end");
+				console.log(response.document_id);
+				window.location = '/document/' + response.document_id;
+			}
 		}
 	});
-
-	//header to document/id
-
 });
 

@@ -42,15 +42,18 @@ table {
 body {
 	font-family: 'helvetica neue', helvetica, arial, sans-serif;
 	color: #222;
+	background: #fff;
 	font-size: 14px;
 	line-height: 1.5em;
 	margin-top: 20px;
 }
 
 h1, h2 {
-	color: #FF4F6C;
+	font-family: 'American Typewriter', serif;
+	color: #111;
 	margin: 10px 0;
 	line-height: 1.5em;
+	font-weight: 400;
 }
 
 h1 {
@@ -77,9 +80,18 @@ header {
 	box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
 }
 
-#header_placeholder {
-	height: 80px;
+#landing_header_placeholder, #document-header_placeholder {
 	width: 100%;
+	position: fixed;
+	top: 0;
+}
+
+#landing_header_placeholder {
+	height: 40px;
+}
+
+#document_header_placeholder {
+	height: 80px;
 }
 
 .document-header-controls {
@@ -102,8 +114,8 @@ header {
 	background: #aed095;
 }
 
-.document-header-toolbar a:hover{
-	background: #555;	
+.document-header-toolbar a:hover {
+	background: #555;
 }
 
 .container {
@@ -128,13 +140,31 @@ header {
 	margin-left: 10px;
 }
 
-.document-header-toolbar{
+.document-header-toolbar {
 	width: 100%;
 	height: 40px;
 	background-color: #333;
 }
 
-.document-header-toolbar-controls{
+.document-header-toolbar-controls {
 	float: right;
 	margin-right: 10px;
+}
+
+#landing-create, #landing-welcome {
+	width: 480px;
+	margin: 100px auto;
+}
+
+#landing-create label {
+	display: block;
+	text-align: left;
+}
+
+#landing-create input, #landing-create button {
+	width: 100%;
+	height: 30px;
+	margin: 5px 0 10px;
+	padding: 5px;
+	font-size: 14px;
 }

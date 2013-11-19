@@ -1,7 +1,7 @@
 <%= include ../template/index-header.ejs %>
 
-<div>
-	<h1>welcome to coative.</h1>
+<div id="landing-welcome">
+	<h1>welcome to coactive.</h1>
 	<p>
 		Coactive.co is a collborative document editing program.
 		Users can share their document with friends, family, or colleagues, and collectively edit a document remotely in real time.
@@ -9,12 +9,12 @@
 	</p>
 </div>
 
-<div>
-	<span>Let's get started!</span>
+<div id="landing-create">
+	<h2>Let's get started!</h2>
 	<label>1. Enter your email address</label>
-	<input type="text" id="landing-create-email" placeholder="ex: johndoe@domain.com" />
+	<input type="text" id="landing-create-email" placeholder="ex: johndoe@domain.com" /><br/>
 	<label>2. Give your document a title</label>
-	<input type="text" id="landing-create-title" placeholder="ex: My Super Cool Document!" />
+	<input type="text" id="landing-create-title" placeholder="ex: My Super Cool Document!" /><br/>
 	<label>3. Start collaborating!</label>
 	<button class="landing-create-document">
 		Create My Document
