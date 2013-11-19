@@ -1,22 +1,23 @@
 module.exports.controller = function(app) {
 
 	//When the create button is clicked
-	app.get('/action/create_document', function(req, res) {
+	app.post('/action/create_document', function(req, res) {
 
 		var uuid = require('node-uuid');
+		var document_id = uuid.v4();
 
 		var liveModel = require('../models/live');
 		liveModel.create({
-			'document_id' : uuid.v4(),
-			'owner' : req.owner,
-			'title' : req.title,
+			'document_id' : document_id,
+			'owner' : req.body.owner,
+			'title' : req.body.title,
 			'body' : ''
 		}, function(err, results) {
 			console.log(err);
 			console.log(results);
 		});
 
-		res.send('<h1>Test</h1>');
+		res.send(document_id);
 
 	});
 
