@@ -27,12 +27,7 @@
 	});
 
 	_socketConnection.on('title_event_from_server', function(data) {
-		console.log(data);
 		$('.document-title').val(data.title);
-
-		//AJAX call
-		
-
 	});
 
 	$('.document-body').keyup(function() {
@@ -47,12 +42,9 @@
 	});
 
 	_socketConnection.on('body_event_from_server', function(data) {
-		console.log(data);
 		$('.document-body').html(data.body);
-
-		//AJAX call
-
 	}); 
+	
 </script>
 
 <%= include ../template/footer.ejs %>
