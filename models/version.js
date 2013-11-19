@@ -2,45 +2,47 @@ var mongodb = require('mongodb');
 var mongoClient = mongodb.MongoClient;
 
 var databaseName = 'coactive';
-var collectionName = 'version';
+var collectionName = 'live';
 
-exports.create = function(version, fn) {
+var database;
 
-	mongoClient.connect('mongodb://127.0.0.1:27017/' + databaseName, function(err, db) {
+exports.connect = function(callback) {
 
-		db.collection(collectionName).insert(version, function(err, results) {
-			fn(err, results);
+	if (database == undefined) {
+		mongoClient.connect('mongodb://127.0.0.1:27017/' + databaseName, function(err, db) {
+			database = db;
+			callback();
 		});
+	} else {
+		callback();
+	}
 
+};
+
+exports.create = function(document, fn) {
+
+	database.collection(collectionName).insert(document, function(err, results) {
+		fn(err, results);
 	});
 
 };
 
 exports.readById = function(id, fn) {
 
-	mongoClient.connect('mongodb://127.0.0.1:27017/' + databaseName, function(err, db) {
-
-		db.collection(collectionName).find({
-			'document_id' : id
-		}, function(err, results) {
-			fn(err, results);
-		});
-
+	database.collection(collectionName).findOne({
+		'document_id' : id
+	}, function(err, results) {
+		fn(err, results);
 	});
 
 };
 
-
 exports.readByVersion = function(id, fn) {
 
-	mongoClient.connect('mongodb://127.0.0.1:27017/' + databaseName, function(err, db) {
-
-		db.collection(collectionName).findOne({
-			'version_id' : id
-		}, function(err, results) {
-			fn(err, results);
-		});
-
+	database.collection(collectionName).findOne({
+		'version_id' : id
+	}, function(err, results) {
+		fn(err, results);
 	});
 
 };
