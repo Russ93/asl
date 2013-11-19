@@ -37,14 +37,12 @@ fs.readdirSync('./controllers').forEach(function(file) {
 
 socketServer.sockets.on('connection', function(userSocket) {
 
-	userSocket.on('body_event_from_client', function(data) {
-		userSocket.broadcast.to(userSocket.room).emit('body_event_from_server', data);
+	fs.readdirSync('./listeners').forEach(function(file) {
+		if (file.substr(-3) == '.js') {
+			var listener = require('./listeners/' + file);
+			listener.setup(socketServer, userSocket);
+		}
 	});
-
-	userSocket.on('title_event_from_client', function(data) {
-		userSocket.broadcast.to(userSocket.room).emit('title_event_from_server', data);
-	}); 
-
 });
 
 httpServer.listen(app.get('port'), function() {
