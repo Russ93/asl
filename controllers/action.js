@@ -17,7 +17,7 @@ module.exports.controller = function(app) {
 			console.log(results);
 		});
 
-		res.send(results.document_id);
+		res.send(document_id);
 
 	});
 

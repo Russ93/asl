@@ -21,7 +21,7 @@ $('.landing-create-document').on("click", function() {
 			'title' : title
 		},
 		success : function(response) {
-			console.log(response.document_id);
+			console.log(response);
 		}
 	});
 
