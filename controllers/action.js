@@ -17,8 +17,9 @@ module.exports.controller = function(app) {
 			console.log(results);
 		});
 
-		res.send(document_id);
-
+		res.json({
+			document_id : document_id
+		});
 	});
 
 	app.get('/action/create_version', function(req, res) {
