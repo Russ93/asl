@@ -33,7 +33,7 @@ exports.readById = function(id, fn) {
 exports.update = function(document, fn) {
 
 	mongoClient.connect('mongodb://127.0.0.1:27017/' + databaseName, function(err, db) {
-
+	console.log(err);
 		db.collection(collectionName).update({
 			'document_id' : document.document_id
 		}, document, function(err, results) {
