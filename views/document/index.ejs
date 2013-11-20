@@ -1,14 +1,11 @@
 <%= include ../template/document-header.ejs %>
 
-<div id="document" class="yui-skin-sam">
-	<!-- <input id="document-title" class="document-title" type="text" placeholder="Title" value="<%= title %>"/>
-	<div>
-	<textarea id="document-body" class="document-body" placeholder="Start typing into your document"><%= body %></textarea>
-	</div> -->
-	<textarea name="msgpost" id="msgpost" cols="50" rows="10">
-    	<strong>Your</strong> HTML <em>code</em> goes here.<br>
-    	This text will be pre-loaded in the editor when it is rendered.
-	</textarea>		
+
+<div id="document">
+	<input id="document-title" class="document-title" type="text" placeholder="Title" value="<%= title %>"/>
+	<div class="yui-skin-sam">
+		<textarea id="document-body"><%= body %></textarea>
+	</div>
 </div>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -19,6 +16,7 @@
 <!-- <script>var _socketConnection = io.connect('/');</script> -->
 
 <script>
+
 	$('#document-title').keyup(function() {
 
 		var title = $('#document-title').val();
@@ -34,20 +32,26 @@
 		$('#document-title').val(data.title);
 	});
 
-	$('#document-body').keyup(function() {
-
-		var body = $('#document-body').val();
+	var myEditor = new YAHOO.widget.SimpleEditor('document-body', {
+	    height: '300px',
+	    width: '522px'
+	});
+	
+	myEditor.on('editorKeyUp', function() {
+		
+		var body = myEditor.getEditorHTML();
 
 		_socketConnection.emit('body_event_from_client', {
 			'document_id' : '<%= document_id %>',
 			'body' : body
 		});
-
-	});
+		
+	}, myEditor, true);
+	
+	myEditor.render();
 
 	_socketConnection.on('body_event_from_server', function(data) {
-		$('#document-body').html(data.body);
-
+		myEditor.setEditorHTML(data.body);
 	});
 
 </script>
