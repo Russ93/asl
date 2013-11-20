@@ -4,10 +4,6 @@ console.log(date);
 var dt = new Date(date);
 console.log(dt);
 
-/*----------------SOCKET STUFF------------------*/
-
-/*----------------END SOCKET STUFF------------------*/
-
 $('.landing-create-document').on("click", function() {
 
 	console.log("click");
