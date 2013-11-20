@@ -9,7 +9,8 @@ var httpServer = http.createServer(app);
 var socketServer = io.listen(httpServer);
 
 // all environments
-app.set('port', process.env.PORT || 80);
+app.set('port', process.env.PORT || 3000);
+// app.set('port', process.env.PORT || 80);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.bodyParser());
