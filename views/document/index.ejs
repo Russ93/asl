@@ -1,10 +1,14 @@
 <%= include ../template/document-header.ejs %>
 
-<div id="document">
-	<input id="document-title" class="document-title" type="text" placeholder="Title" value="<%= title %>"/>
+<div id="document" class="yui-skin-sam">
+	<!-- <input id="document-title" class="document-title" type="text" placeholder="Title" value="<%= title %>"/>
 	<div>
-		<textarea id="document-body" class="document-body" placeholder="Start typing into your document"><%= body %></textarea>
-	</div>
+	<textarea id="document-body" class="document-body" placeholder="Start typing into your document"><%= body %></textarea>
+	</div> -->
+	<textarea name="msgpost" id="msgpost" cols="50" rows="10">
+    	<strong>Your</strong> HTML <em>code</em> goes here.<br>
+    	This text will be pre-loaded in the editor when it is rendered.
+	</textarea>		
 </div>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

@@ -32,39 +32,3 @@ $('.landing-create-document').on("click", function() {
 		}
 	});
 });
-
-
-$('.header-document').on('click', function(){
-	console.log('go back to document');
-	
-});
-
-
-$('.header-versions').on('click', function(){
-	console.log('view all versions');
-	
-});
-
-
-$('.header-toolbar').on('click', function(){
-	console.log('slide down the toolbar');
-	
-});
-
-
-$('.header-create-version').on('click', function(){
-	console.log('create version');
-	
-});
-
-
-$('.header-download-live').on('click', function(){
-	console.log('download live version');
-	
-});
-
-
-$('.header-share').on('click', function(){
-	console.log('pop up a share window with mail to functionality');
-	
-});
