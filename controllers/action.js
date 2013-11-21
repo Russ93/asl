@@ -28,28 +28,26 @@ module.exports.controller = function(app) {
 	});
 
 	app.post('/action/create_version', function(req, res) {
-		
-		var dt = Math.round((new Date()).getTime() / 1000);
-		var date = new Date(dt);
+
+		var dt = Math.round(new Date().getTime());
 		
 		var versionModel = require('../models/version');
 		versionModel.connect(function() {
-			
+
 			versionModel.create({
 				'version_id' : dt,
 				'document_id' : req.document_id,
-				'version' : date',
 				'title' : req.title,
 				'body' : req.body
 			}, function(err, results) {
 				console.log(err);
 				console.log(results);
 			});
-			
+
 		});
 
 		res.json({
-			document_id : document_id
+			dt : dt
 		});
 	});
 

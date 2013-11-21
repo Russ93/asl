@@ -1,9 +1,3 @@
-var date = Math.round((new Date()).getTime() / 1000);
-console.log(date);
-
-var dt = new Date(date);
-console.log(dt);
-
 $('.landing-create-document').on("click", function() {
 
 	console.log("click");
@@ -31,7 +25,9 @@ $('.landing-create-document').on("click", function() {
 
 
 $('.header-create-version').on("click", function(){
-	alert('DICK');
+	var document_id = $('#document-id').val();
+	var title = $('#document-title').val();
+	var body = myEditor.getEditorHTML();
 	
 	$.ajax({
 		url : "/action/create_version",
@@ -43,10 +39,9 @@ $('.header-create-version').on("click", function(){
 			'body' : body
 		},
 		success : function(response) {
-			if (response.document_id) {
-				console.log("end");
-				console.log(response.document_id);
-				window.location = '/document/' + response.document_id;
+			if (response.dt) {
+				alert('Version successfully created on' + new Date(response.dt));
+				console.log(response.dt);
 			}
 		}
 	});
