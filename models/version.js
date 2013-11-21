@@ -47,3 +47,7 @@ exports.readByVersion = function(id, fn) {
 
 };
 
+
+exports.readByIdAndVersion = function(id, fn){
+	
+}
