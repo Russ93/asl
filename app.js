@@ -9,8 +9,8 @@ var httpServer = http.createServer(app);
 var socketServer = io.listen(httpServer);
 
 // all environments
-// app.set('port', process.env.PORT || 3000);
-app.set('port', process.env.PORT || 80);
+app.set('port', process.env.PORT || 3000);
+// app.set('port', process.env.PORT || 80);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.bodyParser());
@@ -34,6 +34,11 @@ fs.readdirSync('./controllers').forEach(function(file) {
 		var route = require('./controllers/' + file);
 		route.controller(app);
 	}
+});
+
+app.use(function(req, res, next){
+	res.status(404);
+	res.render('error/404');	
 });
 
 socketServer.sockets.on('connection', function(userSocket) {
