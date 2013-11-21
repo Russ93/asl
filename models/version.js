@@ -32,7 +32,11 @@ exports.readByDocumentId = function(id, fn) {
 	database.collection(collectionName).find({
 		'document_id' : id
 	}, function(err, results) {
-		fn(err, results);
+		
+		results.toArray(function(err, results){
+			fn(err, results);
+		});
+		
 	});
 
 };
