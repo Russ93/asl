@@ -10,7 +10,7 @@ module.exports.controller = function(app) {
 				console.log(results);
 
 				results.toArray(function(err, result) {
-					res.json(result);
+					res.json(results);
 				})
 			});
 

@@ -34,7 +34,7 @@ $('.header-create-version').on("click", function(){
 		type : "post",
 		dataType : "json",
 		data : {
-			'documentId' : document_id,
+			'document_id' : document_id,
 			'title' : title,
 			'body' : body
 		},

@@ -36,7 +36,7 @@ module.exports.controller = function(app) {
 
 			versionModel.create({
 				'version_id' : dt,
-				'document_id' : req.document_id,
+				'document_id' : req.body.document_id,
 				'title' : req.title,
 				'body' : req.body
 			}, function(err, results) {
