@@ -28,3 +28,27 @@ $('.landing-create-document').on("click", function() {
 		}
 	});
 });
+
+
+$('.header-create-version').on("click", function(){
+	alert('DICK');
+	
+	$.ajax({
+		url : "/action/create_version",
+		type : "post",
+		dataType : "json",
+		data : {
+			'documentId' : document_id,
+			'title' : title,
+			'body' : body
+		},
+		success : function(response) {
+			if (response.document_id) {
+				console.log("end");
+				console.log(response.document_id);
+				window.location = '/document/' + response.document_id;
+			}
+		}
+	});
+	
+});

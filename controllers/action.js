@@ -27,18 +27,20 @@ module.exports.controller = function(app) {
 
 	});
 
-	app.get('/action/create_version', function(req, res) {
-		var uuid = require('node-uuid');
-
+	app.post('/action/create_version', function(req, res) {
+		
+		var dt = Math.round((new Date()).getTime() / 1000);
+		var date = new Date(dt);
+		
 		var versionModel = require('../models/version');
 		versionModel.connect(function() {
 			
 			versionModel.create({
-				'version_id' : uuid.v4(),
-				'document_id' : '12345',
-				'version' : 'UNIX TIMESTAMP PLEASE',
-				'title' : 'Some Version Title',
-				'body' : 'Version Testing'
+				'version_id' : dt,
+				'document_id' : req.document_id,
+				'version' : date',
+				'title' : req.title,
+				'body' : req.body
 			}, function(err, results) {
 				console.log(err);
 				console.log(results);
@@ -46,7 +48,9 @@ module.exports.controller = function(app) {
 			
 		});
 
-		res.send('<h1>Test</h1>');
+		res.json({
+			document_id : document_id
+		});
 	});
 
 };
