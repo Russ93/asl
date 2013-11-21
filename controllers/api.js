@@ -3,18 +3,14 @@ module.exports.controller = function(app) {
 
 		var versionModel = require('../models/version');
 		versionModel.connect(function() {
-			versionModel.readByDocumentId({
-				'document_id' : req.query.document_id
-			}, function(err, results) {
-				console.log(err);
-				console.log(results);
 
-				results.toArray(function(err, result) {
-					res.json(results);
-				})
+			versionModel.readByDocumentId(req.query.document_id, function(err, results) {
+
+				res.json(results);
+
 			});
 
 		});
 	});
 
-}
+};
