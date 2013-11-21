@@ -2,7 +2,7 @@ var mongodb = require('mongodb');
 var mongoClient = mongodb.MongoClient;
 
 var databaseName = 'coactive';
-var collectionName = 'live';
+var collectionName = 'archive';
 
 var database;
 
@@ -27,9 +27,9 @@ exports.create = function(document, fn) {
 
 };
 
-exports.readById = function(id, fn) {
+exports.readByDocumentId = function(id, fn) {
 
-	database.collection(collectionName).findOne({
+	database.collection(collectionName).find({
 		'document_id' : id
 	}, function(err, results) {
 		fn(err, results);

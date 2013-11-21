@@ -47,3 +47,22 @@ $('.header-create-version').on("click", function(){
 	});
 	
 });
+
+$('.header-versions').on("click", function(){
+	var document_id = $('#document-id').val();
+	
+	$.ajax({
+		url : "/api/read_versions_by_document_id",
+		type : "get",
+		dataType : "json",
+		data : {
+			'document_id' : document_id
+		},
+		success : function(response) {
+			if (response.results) {
+				console.log(results);
+			}
+		}
+	});
+	
+});
