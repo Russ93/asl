@@ -48,6 +48,7 @@ $('.header-create-version').on("click", function(){
 	
 });
 
+
 $('.header-versions').on("click", function(){
 	var document_id = $('#document-id').val();
 	
@@ -61,6 +62,7 @@ $('.header-versions').on("click", function(){
 		success : function(response) {
 			if (response.results) {
 				console.log(results);
+				window.location = '/document/' + document_id + '/versions';
 			}
 		}
 	});

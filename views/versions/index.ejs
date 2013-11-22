@@ -1,13 +1,20 @@
 <%= include ../template/version-header.ejs %>
 
 <div id="version-list">
-	<span class="version"></span>
+	<% for(var i = 0; i < versions.length; i++){ %>
+		<span class="version">
+			<a href="/document/<%= document_id %>/<%= versions[i].version_id %>">
+				<%= new Date(versions[i].version_id) %>
+			</a>
+		</span>
+		<br />
+	<% } %>
 </div>
 
 <div id="version-details">
 	<span>Title Here</span>
 	<div>
-		<p></p>
+		<p>Testing</p>
 	</div>
 </div>
 

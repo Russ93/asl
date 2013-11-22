@@ -10,6 +10,7 @@ module.exports.controller = function(app) {
 			liveModel.readById(documentId, function(err, results) {
 
 				var data = results;
+				data.version_id = "";
 
 				if (!data) {
 					res.render('error/404');
@@ -31,7 +32,7 @@ module.exports.controller = function(app) {
 		var versionModel = require('../models/version');
 		versionModel.connect(function() {
 
-			versionModel.readByIdAndVersion(documentId, function(err, results) {
+			versionModel.readByIdAndVersion(documentId, versionId, function(err, results) {
 
 				var data = results;
 

@@ -16,6 +16,10 @@
 
 <script>
 
+	_socketConnection.emit('entered_room_from_client', {
+		'room' : '<%= document_id %>_<%= version_id %>'
+	});
+
 	$('#document-title').keyup(function() {
 
 		var title = $('#document-title').val();
@@ -24,7 +28,6 @@
 			'document_id' : '<%= document_id %>',
 			'title' : title
 		});
-
 	});
 
 	_socketConnection.on('title_event_from_server', function(data) {

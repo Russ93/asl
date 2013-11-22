@@ -41,17 +41,14 @@ exports.readByDocumentId = function(id, fn) {
 
 };
 
-exports.readByVersion = function(id, fn) {
 
+exports.readByIdAndVersion = function(document_id, version_id, fn){
+	
 	database.collection(collectionName).findOne({
-		'version_id' : id
+		'document_id' : document_id,
+		'version_id' : parseInt(version_id)
 	}, function(err, results) {
 		fn(err, results);
 	});
-
-};
-
-
-exports.readByIdAndVersion = function(id, fn){
 	
-}
+};
