@@ -68,3 +68,40 @@ $('.header-versions').on("click", function(){
 	});
 	
 });
+
+
+$('.header-versions').on("click", function(){
+	var document_id = $('#document-id').val();
+	
+	$.ajax({
+		url : "/api/read_versions_by_document_id",
+		type : "get",
+		dataType : "json",
+		data : {
+			'document_id' : document_id
+		},
+		success : function(response) {
+			if (response.results) {
+				console.log(results);
+				window.location = '/document/' + document_id + '/versions';
+			}
+		}
+	});
+	
+});
+
+
+$('.header-download-live').on("click", function(){
+	alert('Download Feature Coming Soon');
+	
+});
+
+
+$('.header-share').on("click", function(){
+	alert('Download Feature Coming Soon');
+	
+});
+
+$('.header-toolbar').on("click", function(){
+	$('.document-header-toolbar').slideToggle();	
+});
