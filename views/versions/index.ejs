@@ -1,4 +1,4 @@
-<%= include ../template/version-header.ejs %>
+<%= include ../template/document-header.ejs %>
 
 <div id="version-list">
 	<% for(var i = 0; i < versions.length; i++){ %>
@@ -7,7 +7,6 @@
 				<%= new Date(versions[i].version_id) %>
 			</a>
 		</span>
-		<br />
 	<% } %>
 </div>
 

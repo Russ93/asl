@@ -48,6 +48,13 @@ body {
 	margin-top: 20px;
 }
 
+footer{
+	position: relative;
+	bottom: 0;
+	width: 100%;
+	text-align:center;
+}
+
 h1, h2 {
 	font-family: 'American Typewriter', serif;
 	color: #111;
@@ -187,4 +194,12 @@ input {
 	width: 280px;
 	margin: 10px;
 	float: right;
+}
+
+.version a:hover {
+	background: #555;
+}
+
+#landing-error{
+	color: #BA1313;
 }
