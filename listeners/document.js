@@ -3,9 +3,8 @@ module.exports.setup = function(socketServer, userSocket) {
 	var liveModel = require('../models/live');
 
 	userSocket.on('entered_room_from_client', function(data) {
-		console.log("user has joined");
 		userSocket.room = data.room;
-		console.log(userSocket.room);
+		userSocket.join(userSocket.room);
 	});
 
 	userSocket.on('title_event_from_client', function(data) {
